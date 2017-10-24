@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <title>Audovare</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div id="cover">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-full id="navbarSupportedContent">
+        <a class="navbar-brand" href="/">/\\\ Audovare</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav mr-auto>
+            <% if user_signed_in? %>
+
+            <li class="nav-item"><%= link_to('Profile', profile_path, class: 'nav-link' ) %></li>
+            <li class="nav-item"><%= link_to('Edit registration', edit_user_registration_path, class: 'nav-link' ) %></li>
+            <li class="nav-item"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'nav-link' ) %></li>
+
+          <% else %>
+
+            <li class="nav-item"><%= link_to('Register', new_user_registration_path, class: 'nav-link' ) %></li>
+            <li class="nav-item"><%= link_to('Login', new_user_session_path, class: 'nav-link' ) %></li>
+
+          <% end %>
+          <% if user_signed_in? %>
+              <li class="nav-link">Logged in as <%= current_user.email %></li>
+          <% end %>
+          </ul>
+          <form class="row-fluid">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+                <button class="btn btn-success" type="button" aria-label="Search">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+          </form>
+
+
+        </div>
+      </nav>
+      <section>
+
+        <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>"><%=message%></div>
+        <% end %>
+
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="container text-center">
+        <span>
+          &copy; 2017 Audovare |
+          <a href="/about">About</a> &middot; <a href="/contact">Contact</a> &middot; <a href="/jobs">Jobs</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
