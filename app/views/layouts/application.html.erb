@@ -20,7 +20,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="nav navbar-nav mr-auto>
-            <% if user_signed_in? %>
+
+          <% if user_signed_in? %>
+
+          <% if can? :manage, :all %>
+            <li class="nav-item"><%= link_to('Admin Dashboard', '/admin', class: 'nav-link') %></li>
+          <% end %>
 
             <li class="nav-item"><%= link_to('Profile', profile_path, class: 'nav-link' ) %></li>
             <li class="nav-item"><%= link_to('Edit registration', edit_user_registration_path, class: 'nav-link' ) %></li>
@@ -33,15 +38,15 @@
 
           <% end %>
           <% if user_signed_in? %>
-              <li class="nav-link">Logged in as <%= current_user.email %></li>
+              <li class="nav-link">Logged in as <%= current_user.username.titleize %></li>
           <% end %>
           </ul>
           <form class="row-fluid">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-                <button class="btn btn-success" type="button" aria-label="Search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
+              <input type="text" class="form-control" placeholder="Search for..." aria-label="Search">
+              <span class="input-group-addon">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
             </div>
           </form>
 
@@ -50,9 +55,12 @@
       </nav>
       <section>
 
-        <% flash.each do |type, message| %>
-        <div class="alert alert-<%= type %>"><%=message%></div>
-        <% end %>
+        <!-- <%# flash.each do |type, message| %>
+        <div class="alert alert-<%#= type %>"><%#=message%></div>
+        <%# end %> -->
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
         <div class="container-fluid">
           <%= yield %>

@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   # before_action :must_login, only: [:show]
 
-skip_before_action :authenticate_user!, :only => [:index, :about, :contact, :jobs]
-# before_action :authorize, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, :only => [:index, :about, :contact, :jobs]
+  # before_action :authorize, only: [:show, :edit, :update]
 
   def profile
     @title = 'Profile';
