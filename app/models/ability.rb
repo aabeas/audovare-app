@@ -12,20 +12,18 @@ class Ability
     #   end
 
     user ||= User.new # guest user (not logged in)
-    if user.admin_role?
+    if user.has_role? :admin
           can :manage, :all
           can :access, :rails_admin       # only allow admin users to access Rails Admin
           # can :dashboard                  # allow access to dashboard
     end
-    if user.agency_role?
-          can :manage, :all
-          # can :access, :rails_admin     # only allow admin users to access Rails Admin
-          # can :dashboard                  # allow access to dashboard
+
+    if user.has_role? :talent
+          can :read, :create, :all
     end
-    if user.talent_role?
-          can :manage, :all
-          # can :access, :rails_admin     # only allow admin users to access Rails Admin
-          # can :dashboard                  # allow access to dashboard
+
+    if user.has_role? :agency
+          can :read, :create, :all
     end
 
     # The first argument to `can` is the action you are giving the user

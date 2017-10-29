@@ -20,17 +20,18 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'devise'
 gem 'figaro'
+gem 'devise'
 gem 'simple_form'
 gem 'rails_admin'
 gem 'cancancan'
+gem 'rolify'
 # gem 'twilio-ruby'
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+# gem 'httparty'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'popper_js'
 gem 'font-awesome-sass'
-# gem 'httparty'
 gem 'jquery-ui-rails'
 gem 'momentjs-rails'
 
