@@ -1,0 +1,47 @@
+<% provide(:title, 'Edit Vacancy') %>
+<div class="row-fluid">
+  <div class="col-md-6 col md-offset-3" id="statement">
+    <h2>Edit Vacancy</h2>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <%= simple_form_for :vacancy, url: vacancies_path, local: true do |f| %>
+      <%= f.error_notification %>
+
+    <div class="form-inputs">
+        <%= f.input :pocFirstName, required: true, autofocus: true, label: false, placeholder: 'Contact First Name' %>
+        <%= f.input :pocLastName, required: true, autofocus: true, label: false, placeholder: 'Contact Last Name' %>
+        <%= f.input :pocEmail, as: :email, required: true, autofocus: true, label: false, placeholder: 'Contact Email' %>
+        <%= f.input :title, input_html: { minlength: 5 }, required: true, autofocus: true, label: false, placeholder: 'Title' %>
+        <div class="field">
+          <%= label_tag 'categories_male', 'Male' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Male', checked('Male'), id: 'categories_male' %>
+
+          <%= label_tag 'categories_female', 'Female' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Female', checked('Female'), id: 'categories_female' %>
+
+          <%= label_tag 'categories_animal', 'Animal' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Animal', checked('Animal'), id: 'categories_animal' %>
+
+          <%= label_tag 'categories_cartoon', 'Cartoon' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Cartoon', checked('Cartoon'), id: 'categories_cartoon' %>
+
+          <%= label_tag 'categories_audiobook', 'Audio Book' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Audio Book', checked('Audio Book'), id: 'categories_audiobook' %>
+
+          <%= label_tag 'categories_telephone', 'Telephone' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Telephone', checked('Telephone'), id: 'categories_telephone' %>
+
+          <%= label_tag 'categories_nationality', 'Nationality' %>
+          <%= check_box_tag 'vacancy[categories][]', 'Nationality', checked('Nationality'), id: 'categories_nationality' %>
+        </div>
+        <%= f.input :description, as: :text, required: true, autofocus: true, label: false, placeholder: 'Description' %>
+        <%= f.input :script, as: :text, required: true, autofocus: true, label: false, placeholder: 'Script' %>
+        <%= f.input :budget, as: :integer, required: true, autofocus: true, label: false, placeholder: 'Budget' %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Update Vacancy", class: 'btn btn-outline-light btn-sm' %>
+    </div>
+    <% end %>
+  </div>
+</div>

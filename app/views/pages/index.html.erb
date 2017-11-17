@@ -1,4 +1,6 @@
-<div class="jumbotron-outline-success">
+<% provide(:title, 'Welcome') %>
+<div class="container welcome">
   <h1>Welcome to Audovare</h1>
-  <p>An Audio Request Application</p>
+  <p>An Audio Request Application</p><br />
+  <quoteblock class="container statement"><%= get_random_welcome() %></quoteblock>
 </div>

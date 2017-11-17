@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pocFirstName: MyString
+  pocLastName: MyString
+  pocEmail: MyString
+  title: MyString
+  categories: MyString
+  description: MyString
+  script: MyString
+  budget: 1
+
+two:
+  pocFirstName: MyString
+  pocLastName: MyString
+  pocEmail: MyString
+  title: MyString
+  categories: MyString
+  description: MyString
+  script: MyString
+  budget: 1

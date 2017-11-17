@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jumbotron-outline-success {
-  padding-top: 120px;
-}
-
 #profile{
   display:inline-flex;
   flex-direction: column;
@@ -29,4 +25,18 @@ h2 {
 
 p,th, td {
   font-weight: lighter;
+}
+
+.welcome {
+  display:flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.statement {
+  flex-direction: column;
+  font-size: 40px;
+  font-style: oblique;
+  font-weight: 100;
+  width: 75%;
 }

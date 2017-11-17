@@ -1,0 +1,13 @@
+<h1>Vacancy Index</h1>
+
+<% @vacancies.each do |vacancy| %>
+<p><%= vacancy.pocFirstName %></p>
+<p><%= vacancy.pocLastName %></p>
+<p><%= vacancy.pocEmail %></p>
+<p><%= vacancy.title %></p>
+<p><%= vacancy.categories %></p>
+<p><%= vacancy.description %></p>
+<p><%= vacancy.script %></p>
+<p><%= vacancy.budget %></p>
+<br>
+<% end %>
